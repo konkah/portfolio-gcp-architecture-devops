@@ -20,3 +20,9 @@ variable "subnet_cidr" {
   type        = string
   default     = "10.0.1.0/24"
 }
+
+variable "vpc_peering_cidr" {
+  description = "CIDR block reserved for VPC Peering with Google Services (Cloud SQL)."
+  type        = string
+  default     = "10.1.0.0/16"
+}
