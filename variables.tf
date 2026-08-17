@@ -8,3 +8,9 @@ variable "region" {
   type        = string
   default     = "southamerica-east1"
 }
+
+variable "env" {
+  description = "The environment name used for resource naming."
+  type        = string
+  default     = "dev"
+}
