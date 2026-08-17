@@ -80,3 +80,38 @@ variable "artifact_repository_format" {
   type        = string
   default     = "DOCKER"
 }
+
+variable "cloud_run_image" {
+  description = "Container image URI for Cloud Run."
+  type        = string
+}
+
+variable "cloud_run_port" {
+  description = "Port exposed by the container."
+  type        = number
+  default     = 8080
+}
+
+variable "cloud_run_memory" {
+  description = "Memory allocation for Cloud Run instances."
+  type        = string
+  default     = "512Mi"
+}
+
+variable "cloud_run_cpu" {
+  description = "CPU allocation for Cloud Run instances."
+  type        = string
+  default     = "1"
+}
+
+variable "cloud_run_min_instances" {
+  description = "Minimum number of Cloud Run instances."
+  type        = number
+  default     = 1
+}
+
+variable "cloud_run_max_instances" {
+  description = "Maximum number of Cloud Run instances."
+  type        = number
+  default     = 10
+}
