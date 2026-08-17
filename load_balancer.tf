@@ -70,3 +70,14 @@ resource "google_compute_managed_ssl_certificate" "app" {
 
   depends_on = [google_project_service.required]
 }
+
+resource "google_compute_target_https_proxy" "app" {
+  name             = "${var.env}-https-proxy"
+  url_map          = google_compute_url_map.app.id
+  ssl_certificates = [google_compute_managed_ssl_certificate.app.id]
+
+  depends_on = [
+    google_compute_url_map.app,
+    google_compute_managed_ssl_certificate.app,
+  ]
+}
