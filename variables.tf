@@ -26,3 +26,15 @@ variable "vpc_peering_cidr" {
   type        = string
   default     = "10.1.0.0/16"
 }
+
+variable "vpc_connector_machine_type" {
+  description = "Machine type for the Serverless VPC Access Connector."
+  type        = string
+  default     = "e2-micro"
+}
+
+variable "vpc_connector_min_instances" {
+  description = "Minimum instances for the Serverless VPC Access Connector."
+  type        = number
+  default     = 2
+}

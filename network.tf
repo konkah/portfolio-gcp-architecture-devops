@@ -14,3 +14,14 @@ resource "google_compute_subnetwork" "primary" {
 
   depends_on = [google_compute_network.vpc]
 }
+
+resource "google_vpc_access_connector" "serverless" {
+  name          = "${var.env}-vpc-connector"
+  region        = var.region
+  ip_cidr_range = "10.8.0.0/28"
+  network       = google_compute_network.vpc.name
+  machine_type  = var.vpc_connector_machine_type
+  min_instances = var.vpc_connector_min_instances
+
+  depends_on = [google_compute_subnetwork.primary]
+}
