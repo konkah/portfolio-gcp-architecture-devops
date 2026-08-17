@@ -1,0 +1,47 @@
+# GCP Project Configuration
+project_id = "your-gcp-project-id"
+
+# Environment and Regional Settings
+region = "southamerica-east1"
+env    = "dev"
+
+# Network Configuration
+subnet_cidr          = "10.0.1.0/24"
+vpc_peering_cidr     = "10.1.0.0/16"
+vpc_connector_machine_type = "e2-micro"
+vpc_connector_min_instances = 2
+
+# Cloud SQL Configuration
+db_instance_name = "app-db"
+db_version       = "POSTGRES_15"
+db_tier          = "db-f1-micro"
+db_name          = "appdb"
+db_user          = "appuser"
+
+# Artifact Registry Configuration
+artifact_repository_id = "docker"
+
+# Cloud Run Configuration
+cloud_run_image        = "southamerica-east1-docker.pkg.dev/your-gcp-project-id/docker/app:latest"
+cloud_run_port         = 8080
+cloud_run_memory       = "512Mi"
+cloud_run_cpu          = "1"
+cloud_run_min_instances = 1
+cloud_run_max_instances = 10
+
+# Cloud Armor Configuration
+cloud_armor_rate_limit           = 100
+cloud_armor_rate_limit_duration  = 600
+
+# DNS and Domain Configuration
+domain_name   = "example.com"
+dns_zone_name = "example.com"
+
+# Monitoring Configuration
+alert_email       = "ops@example.com"
+uptime_check_path = "/"
+
+# Billing Configuration
+billing_budget_amount    = 100
+billing_alert_threshold  = 80
+billing_account_id       = "XXXXXX-XXXXXX-XXXXXX"
