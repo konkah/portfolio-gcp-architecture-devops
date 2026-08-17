@@ -30,3 +30,26 @@ resource "google_compute_security_policy" "cloud_armor" {
 
   depends_on = [google_project_service.required]
 }
+
+resource "google_compute_backend_service" "app" {
+  name                            = "${var.env}-backend-service"
+  protocol                        = "HTTPS"
+  enable_cdn                      = false
+  security_policy                 = google_compute_security_policy.cloud_armor.id
+  load_balancing_scheme           = "EXTERNAL"
+  port_name                       = "http"
+  session_affinity                = "NONE"
+  timeout_sec                     = 30
+  connection_draining_timeout_sec = 300
+
+  backend {
+    group                 = google_compute_region_network_endpoint_group.cloud_run_neg.id
+    balancing_mode        = "RATE"
+    max_rate_per_endpoint = 10
+  }
+
+  depends_on = [
+    google_compute_region_network_endpoint_group.cloud_run_neg,
+    google_compute_security_policy.cloud_armor,
+  ]
+}
