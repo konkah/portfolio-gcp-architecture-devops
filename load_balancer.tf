@@ -103,3 +103,35 @@ resource "google_compute_global_forwarding_rule" "https" {
     google_compute_global_address.lb,
   ]
 }
+
+resource "google_compute_url_map" "http_redirect" {
+  name = "${var.env}-http-redirect"
+  default_url_redirect {
+    redirect_response_code = "MOVED_PERMANENTLY_DEFAULT"
+    https_redirect         = true
+    strip_query            = false
+  }
+
+  depends_on = [google_project_service.required]
+}
+
+resource "google_compute_target_http_proxy" "redirect" {
+  name    = "${var.env}-http-proxy-redirect"
+  url_map = google_compute_url_map.http_redirect.id
+
+  depends_on = [google_compute_url_map.http_redirect]
+}
+
+resource "google_compute_global_forwarding_rule" "http" {
+  name                  = "${var.env}-http-forwarding-rule"
+  ip_protocol           = "TCP"
+  port_range            = "80"
+  load_balancing_scheme = "EXTERNAL"
+  target                = google_compute_target_http_proxy.redirect.id
+  ip_address            = google_compute_global_address.lb.id
+
+  depends_on = [
+    google_compute_target_http_proxy.redirect,
+    google_compute_global_address.lb,
+  ]
+}
