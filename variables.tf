@@ -148,3 +148,19 @@ variable "uptime_check_path" {
   type        = string
   default     = "/"
 }
+
+variable "billing_budget_amount" {
+  description = "Monthly budget limit in USD."
+  type        = number
+}
+
+variable "billing_alert_threshold" {
+  description = "Alert threshold as percentage of budget (e.g., 80 for 80%)."
+  type        = number
+  default     = 80
+}
+
+variable "billing_account_id" {
+  description = "GCP Billing Account ID (format: XXXXXX-XXXXXX-XXXXXX)."
+  type        = string
+}
