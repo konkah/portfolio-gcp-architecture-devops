@@ -38,3 +38,33 @@ variable "vpc_connector_min_instances" {
   type        = number
   default     = 2
 }
+
+variable "db_instance_name" {
+  description = "Name of the Cloud SQL instance."
+  type        = string
+  default     = "app-db"
+}
+
+variable "db_version" {
+  description = "Database version (e.g., POSTGRES_15)."
+  type        = string
+  default     = "POSTGRES_15"
+}
+
+variable "db_tier" {
+  description = "Machine tier for the Cloud SQL instance."
+  type        = string
+  default     = "db-f1-micro"
+}
+
+variable "db_name" {
+  description = "Initial database name."
+  type        = string
+  default     = "appdb"
+}
+
+variable "db_user" {
+  description = "Initial database user."
+  type        = string
+  default     = "appuser"
+}
