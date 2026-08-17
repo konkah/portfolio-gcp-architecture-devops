@@ -16,7 +16,7 @@ terraform {
   # terraform init. See README.md for the complete bootstrap instructions.
 
   backend "gcs" {
-    bucket = "REPLACE_WITH_TF_STATE_BUCKET"
+    bucket = "portfolio-architecture-devops-tf-state"
     prefix = "portfolio-gcp-architecture-devops"
   }
 }
