@@ -1,5 +1,4 @@
 .github/copilot-instructions.md
-.terraform.lock.hcl
 .terraform/
 
 # Terraform state and variables

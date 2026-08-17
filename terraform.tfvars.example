@@ -19,7 +19,8 @@ db_name          = "appdb"
 db_user          = "appuser"
 
 # Artifact Registry Configuration
-artifact_repository_id = "docker"
+artifact_repository_id     = "docker"
+artifact_repository_format = "DOCKER"
 
 # Cloud Run Configuration
 cloud_run_image        = "southamerica-east1-docker.pkg.dev/your-gcp-project-id/docker/app:latest"

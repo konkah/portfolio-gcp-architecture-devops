@@ -8,11 +8,6 @@ terraform {
     }
   }
 
-  backend "gcs" {
-    bucket = "REPLACE_WITH_TF_STATE_BUCKET"
-    prefix = "portfolio-gcp-architecture-devops"
-  }
-}
   # GCS Backend Configuration for Terraform State
   # =============================================
   # Before running 'terraform init', create a GCS bucket for state:
@@ -32,6 +27,12 @@ terraform {
   #
   # 4. Then run: terraform init
   #
+
+  backend "gcs" {
+    bucket = "REPLACE_WITH_TF_STATE_BUCKET"
+    prefix = "portfolio-gcp-architecture-devops"
+  }
+}
 
 provider "google" {
   project = var.project_id
