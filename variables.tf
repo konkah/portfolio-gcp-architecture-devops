@@ -132,3 +132,8 @@ variable "domain_name" {
   description = "Domain name for the application (e.g., example.com)."
   type        = string
 }
+
+variable "dns_zone_name" {
+  description = "DNS zone name (usually the domain without www prefix, e.g., example.com)."
+  type        = string
+}
