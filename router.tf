@@ -1,3 +1,5 @@
+# Cloud Router and NAT for outbound internet access from the VPC.
+
 resource "google_compute_router" "nat" {
   name    = "${var.env}-router"
   network = google_compute_network.vpc.id

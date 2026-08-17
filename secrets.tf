@@ -1,3 +1,5 @@
+# Secret Manager secret and version for the database password.
+
 resource "google_secret_manager_secret" "db_password" {
   secret_id = "${var.env}-db-password"
 

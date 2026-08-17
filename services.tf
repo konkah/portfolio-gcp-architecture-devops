@@ -1,3 +1,5 @@
+# Google Cloud APIs required by the MVP resources.
+
 locals {
   required_services = toset([
     "artifactregistry.googleapis.com",

@@ -1,3 +1,5 @@
+# Cloud Run service and its runtime service account.
+
 resource "google_service_account" "cloud_run" {
   account_id   = "${var.env}-cloud-run"
   display_name = "Cloud Run service account"

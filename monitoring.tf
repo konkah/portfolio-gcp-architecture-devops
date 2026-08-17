@@ -1,3 +1,5 @@
+# Uptime monitoring, notification channel, and alert policy.
+
 resource "google_monitoring_notification_channel" "email" {
   display_name = "${var.env}-email-alert"
   type         = "email"

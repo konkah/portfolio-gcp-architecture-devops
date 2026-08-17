@@ -1,3 +1,5 @@
+# Private service networking range and VPC peering for Cloud SQL.
+
 resource "google_compute_global_address" "vpc_peering" {
   name          = "${var.env}-vpc-peering-address"
   purpose       = "VPC_PEERING"

@@ -1,3 +1,5 @@
+# VPC, subnet, and Serverless VPC Access connector.
+
 resource "google_compute_network" "vpc" {
   name                    = "${var.env}-vpc"
   auto_create_subnetworks = false

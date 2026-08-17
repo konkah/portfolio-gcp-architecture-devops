@@ -1,3 +1,5 @@
+# Billing budget and cost threshold notifications.
+
 resource "google_billing_budget" "app" {
   billing_account = "billingAccounts/${var.billing_account_id}"
   display_name    = "${var.env}-budget"

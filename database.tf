@@ -1,3 +1,5 @@
+# Private Cloud SQL database, application database, user, and generated password.
+
 resource "random_password" "db_password" {
   length  = 32
   special = true

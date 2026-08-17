@@ -1,3 +1,5 @@
+# Global HTTPS load balancer, Cloud Armor policy, and serverless NEG.
+
 resource "google_compute_region_network_endpoint_group" "cloud_run_neg" {
   name                  = "${var.env}-cloud-run-neg"
   region                = var.region

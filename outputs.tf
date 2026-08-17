@@ -1,3 +1,5 @@
+# Values exposed for DNS configuration, operations, and post-deployment reference.
+
 output "load_balancer_ip" {
   description = "Public IP address of the Load Balancer"
   value       = google_compute_global_address.lb.address

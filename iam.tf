@@ -1,3 +1,5 @@
+# IAM bindings for Secret Manager access and public Cloud Run invocation.
+
 resource "google_secret_manager_secret_iam_member" "cloud_run_secret_access" {
   secret_id = google_secret_manager_secret.db_password.id
   role      = "roles/secretmanager.secretAccessor"

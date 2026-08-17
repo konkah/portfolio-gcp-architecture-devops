@@ -1,3 +1,5 @@
+# Input variables for project, networking, application, and operations settings.
+
 variable "project_id" {
   description = "The Google Cloud project ID where the infrastructure is deployed."
   type        = string

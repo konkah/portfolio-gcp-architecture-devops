@@ -1,3 +1,5 @@
+# Cloud DNS managed zone and application record.
+
 resource "google_dns_managed_zone" "app" {
   name        = "${var.env}-dns-zone"
   description = "DNS zone for the application domain"
