@@ -81,3 +81,25 @@ resource "google_compute_target_https_proxy" "app" {
     google_compute_managed_ssl_certificate.app,
   ]
 }
+
+resource "google_compute_global_address" "lb" {
+  name         = "${var.env}-lb-ip"
+  address_type = "EXTERNAL"
+  ip_version   = "IPV4"
+
+  depends_on = [google_project_service.required]
+}
+
+resource "google_compute_global_forwarding_rule" "https" {
+  name                  = "${var.env}-https-forwarding-rule"
+  ip_protocol           = "TCP"
+  port_range            = "443"
+  load_balancing_scheme = "EXTERNAL"
+  target                = google_compute_target_https_proxy.app.id
+  ip_address            = google_compute_global_address.lb.id
+
+  depends_on = [
+    google_compute_target_https_proxy.app,
+    google_compute_global_address.lb,
+  ]
+}
