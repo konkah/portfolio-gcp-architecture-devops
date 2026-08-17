@@ -68,3 +68,15 @@ variable "db_user" {
   type        = string
   default     = "appuser"
 }
+
+variable "artifact_repository_id" {
+  description = "Artifact Registry repository ID."
+  type        = string
+  default     = "docker"
+}
+
+variable "artifact_repository_format" {
+  description = "Artifact Registry repository format."
+  type        = string
+  default     = "DOCKER"
+}
