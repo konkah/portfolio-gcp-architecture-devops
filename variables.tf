@@ -137,3 +137,14 @@ variable "dns_zone_name" {
   description = "DNS zone name (usually the domain without www prefix, e.g., example.com)."
   type        = string
 }
+
+variable "alert_email" {
+  description = "Email address for monitoring alerts."
+  type        = string
+}
+
+variable "uptime_check_path" {
+  description = "Path for uptime check (e.g., /health)."
+  type        = string
+  default     = "/"
+}
