@@ -8,3 +8,12 @@ resource "google_secret_manager_secret_iam_member" "cloud_run_secret_access" {
     google_service_account.cloud_run,
   ]
 }
+
+resource "google_cloud_run_v2_service_iam_member" "invoker" {
+  location = google_cloud_run_v2_service.app.location
+  name     = google_cloud_run_v2_service.app.name
+  role     = "roles/run.invoker"
+  member   = "allUsers"
+
+  depends_on = [google_cloud_run_v2_service.app]
+}
