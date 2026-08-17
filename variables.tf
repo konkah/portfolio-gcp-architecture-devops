@@ -127,3 +127,8 @@ variable "cloud_armor_rate_limit_duration" {
   type        = number
   default     = 600
 }
+
+variable "domain_name" {
+  description = "Domain name for the application (e.g., example.com)."
+  type        = string
+}

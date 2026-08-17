@@ -60,3 +60,13 @@ resource "google_compute_url_map" "app" {
 
   depends_on = [google_compute_backend_service.app]
 }
+
+resource "google_compute_managed_ssl_certificate" "app" {
+  name        = "${var.env}-ssl-cert"
+  description = "Managed SSL certificate for the application"
+  managed {
+    domains = [var.domain_name]
+  }
+
+  depends_on = [google_project_service.required]
+}
