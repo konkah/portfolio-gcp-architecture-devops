@@ -115,3 +115,15 @@ variable "cloud_run_max_instances" {
   type        = number
   default     = 10
 }
+
+variable "cloud_armor_rate_limit" {
+  description = "Rate limit threshold per IP (requests per 10 seconds)."
+  type        = number
+  default     = 100
+}
+
+variable "cloud_armor_rate_limit_duration" {
+  description = "Duration for rate limit enforcement in seconds."
+  type        = number
+  default     = 600
+}
