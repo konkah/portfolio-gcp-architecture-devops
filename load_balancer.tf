@@ -53,3 +53,10 @@ resource "google_compute_backend_service" "app" {
     google_compute_security_policy.cloud_armor,
   ]
 }
+
+resource "google_compute_url_map" "app" {
+  name            = "${var.env}-url-map"
+  default_service = google_compute_backend_service.app.id
+
+  depends_on = [google_compute_backend_service.app]
+}
